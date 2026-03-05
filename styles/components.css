@@ -148,6 +148,8 @@ button:focus-visible {
 ───────────────────────────────────────── */
 .main-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -167,6 +169,10 @@ button:focus-visible {
 ───────────────────────────────────────── */
 .section--alerts {
   padding-bottom: var(--sds-size-75);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .section__header {
@@ -203,41 +209,48 @@ button:focus-visible {
 }
 
 .ai-badge__icon {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
+  object-fit: contain;
+  display: block;
 }
 
-/* Alerts horizontal scroll */
+/* Alerts grid — 2 cols × 2 rows visible, scroll horizontal by page */
 .alerts-scroll {
-  display: flex;
-  gap: var(--sds-size-100);
+  display: grid;
+  grid-template-columns: repeat(4, calc(50% - var(--sds-size-50)));
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+  gap: var(--sds-size-75);
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  /* Extend to section edges to avoid clip, restore spacing with padding */
   margin-left:  calc(-1 * var(--sds-size-150));
   margin-right: calc(-1 * var(--sds-size-150));
   padding: var(--sds-size-25) var(--sds-size-150) var(--sds-size-75);
+  flex: 1;
+  min-height: 0;
+  /* row height auto from available space */
+  grid-auto-rows: 1fr;
 }
 
 .alerts-scroll::-webkit-scrollbar {
   display: none;
 }
 
-/* Alert card */
+/* Alert card — taller, narrower, column layout */
 .alert-card {
-  /* 100vw minus the two side paddings that the section applies */
-  flex: 0 0 calc(100vw - (var(--sds-size-150) * 2));
-  max-width: calc(430px - (var(--sds-size-150) * 2));
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
-  align-items: center;
-  gap: var(--sds-size-100);
-  padding: var(--sds-size-100) var(--sds-size-125);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-size-75);
+  padding: var(--sds-size-125);
+  min-height: 120px;
   background-color: var(--app-bg-surface);
   border-radius: var(--sds-size-100);
   box-shadow: var(--app-shadow-card);
@@ -290,6 +303,7 @@ button:focus-visible {
 .alert-card__content {
   flex: 1;
   min-width: 0;
+  width: 100%;
 }
 
 .alert-card__label {
@@ -307,11 +321,14 @@ button:focus-visible {
 .alert-card--danger  .alert-card__label { color: var(--sds-color-cherry-600);  }
 
 .alert-card__value {
-  font-size: var(--sds-font-size-md);
+  font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-regular);
   color: var(--app-text-primary);
   line-height: var(--sds-line-height-snug);
   margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .alert-card__value strong {
@@ -319,19 +336,22 @@ button:focus-visible {
 }
 
 .alert-card__desc {
-  font-size: var(--sds-font-size-sm);
+  font-size: var(--sds-font-size-xs);
   color: var(--app-text-secondary);
   line-height: var(--sds-line-height-normal);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* Chevron action */
+/* Chevron action — bottom-right corner */
 .alert-card__action {
-  flex-shrink: 0;
-  width: var(--sds-size-200);
-  height: var(--sds-size-200);
+  align-self: flex-end;
+  margin-top: auto;
+  width: var(--sds-size-175);
+  height: var(--sds-size-175);
   display: flex;
   align-items: center;
   justify-content: center;
