@@ -217,8 +217,10 @@ button:focus-visible {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: var(--sds-size-25) var(--sds-size-25) var(--sds-size-75);
-  margin: 0 calc(-1 * var(--sds-size-25));
+  /* Extend to section edges to avoid clip, restore spacing with padding */
+  margin-left:  calc(-1 * var(--sds-size-150));
+  margin-right: calc(-1 * var(--sds-size-150));
+  padding: var(--sds-size-25) var(--sds-size-150) var(--sds-size-75);
 }
 
 .alerts-scroll::-webkit-scrollbar {
@@ -227,7 +229,9 @@ button:focus-visible {
 
 /* Alert card */
 .alert-card {
-  flex: 0 0 calc(100% - var(--sds-size-150));
+  /* 100vw minus the two side paddings that the section applies */
+  flex: 0 0 calc(100vw - (var(--sds-size-150) * 2));
+  max-width: calc(430px - (var(--sds-size-150) * 2));
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
