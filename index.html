@@ -54,7 +54,63 @@
   <main class="main-content" id="main" role="main">
 
     <!-- ────────────────────────────────────────
-         SECCIÓN 1 · ALERTAS SUGERIDAS (AI)
+         SECCIÓN 1 · TU SEMANA
+    ──────────────────────────────────────── -->
+    <section class="section section--week"
+             aria-labelledby="this-week-title">
+
+      <div class="week-header">
+        <h2 class="week-header__title" id="this-week-title">TU SEMANA</h2>
+        <span class="week-header__range" aria-label="Del 02 al 08 de marzo">
+          02 - 08 MAR
+        </span>
+      </div>
+
+      <div class="week-divider" role="separator" aria-hidden="true"></div>
+
+      <dl class="week-stats" aria-label="Estadísticas de tu semana">
+        <div class="week-stat">
+          <dt class="week-stat__label">FACTURACIÓN</dt>
+          <dd class="week-stat__value">15</dd>
+        </div>
+        <div class="week-stat">
+          <dt class="week-stat__label">EMBARQUES</dt>
+          <dd class="week-stat__value">10</dd>
+        </div>
+      </dl>
+
+    </section><!-- /.section--week -->
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 2 · PRÓXIMA SEMANA
+    ──────────────────────────────────────── -->
+    <section class="section section--next-week"
+             aria-labelledby="next-week-title">
+
+      <div class="week-header">
+        <h2 class="week-header__title" id="next-week-title">PRÓXIMA SEMANA</h2>
+        <span class="week-header__range" aria-label="Del 09 al 15 de marzo">
+          09 - 15 MAR
+        </span>
+      </div>
+
+      <div class="week-divider" role="separator" aria-hidden="true"></div>
+
+      <dl class="week-stats" aria-label="Estadísticas de próxima semana">
+        <div class="week-stat">
+          <dt class="week-stat__label">FACTURACIÓN</dt>
+          <dd class="week-stat__value">8</dd>
+        </div>
+        <div class="week-stat">
+          <dt class="week-stat__label">EMBARQUES</dt>
+          <dd class="week-stat__value">11</dd>
+        </div>
+      </dl>
+
+    </section><!-- /.section--next-week -->
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 3 · ALERTAS SUGERIDAS (AI)
     ──────────────────────────────────────── -->
     <section class="section section--alerts"
              aria-labelledby="alerts-title">
@@ -187,7 +243,7 @@
         <article class="alert-card alert-card--danger"
                  role="listitem"
                  tabindex="0"
-                 aria-label="Alerta: Facturación crítica — Semana 02–08 Feb">
+                 aria-label="Alerta: Facturación crítica — Semana 02–08 Mar">
           <div class="alert-card__icon-wrap" aria-hidden="true">
             <!-- icon: close-circle-outlined (SDS actions group) -->
             <svg class="icon icon--md" viewBox="0 0 24 24" fill="none"
@@ -202,7 +258,7 @@
 
           <div class="alert-card__content">
             <p class="alert-card__label">Facturación crítica</p>
-            <p class="alert-card__value">Semana <strong>02–08 Feb</strong></p>
+            <p class="alert-card__value">Semana <strong>02–08 Mar</strong></p>
             <p class="alert-card__desc">Por debajo del umbral mínimo</p>
           </div>
 
@@ -241,62 +297,6 @@
       </div>
 
     </section><!-- /.section--alerts -->
-
-    <!-- ────────────────────────────────────────
-         SECCIÓN 2 · TU SEMANA
-    ──────────────────────────────────────── -->
-    <section class="section section--week"
-             aria-labelledby="this-week-title">
-
-      <div class="week-header">
-        <h2 class="week-header__title" id="this-week-title">TU SEMANA</h2>
-        <span class="week-header__range" aria-label="Del 02 al 08 de febrero">
-          02 - 08 FEB
-        </span>
-      </div>
-
-      <div class="week-divider" role="separator" aria-hidden="true"></div>
-
-      <dl class="week-stats" aria-label="Estadísticas de tu semana">
-        <div class="week-stat">
-          <dt class="week-stat__label">FACTURACIÓN</dt>
-          <dd class="week-stat__value">15</dd>
-        </div>
-        <div class="week-stat">
-          <dt class="week-stat__label">EMBARQUES</dt>
-          <dd class="week-stat__value">10</dd>
-        </div>
-      </dl>
-
-    </section><!-- /.section--week -->
-
-    <!-- ────────────────────────────────────────
-         SECCIÓN 3 · PRÓXIMA SEMANA
-    ──────────────────────────────────────── -->
-    <section class="section section--next-week"
-             aria-labelledby="next-week-title">
-
-      <div class="week-header">
-        <h2 class="week-header__title" id="next-week-title">PRÓXIMA SEMANA</h2>
-        <span class="week-header__range" aria-label="Del 09 al 15 de febrero">
-          09 - 15 FEB
-        </span>
-      </div>
-
-      <div class="week-divider" role="separator" aria-hidden="true"></div>
-
-      <dl class="week-stats" aria-label="Estadísticas de próxima semana">
-        <div class="week-stat">
-          <dt class="week-stat__label">FACTURACIÓN</dt>
-          <dd class="week-stat__value">8</dd>
-        </div>
-        <div class="week-stat">
-          <dt class="week-stat__label">EMBARQUES</dt>
-          <dd class="week-stat__value">11</dd>
-        </div>
-      </dl>
-
-    </section><!-- /.section--next-week -->
 
   </main><!-- /.main-content -->
 
