@@ -1,0 +1,173 @@
+/* ============================================================
+   SDS Foundations — Sewing Design System tokens
+   Fuente: mcp_mcp-sewing-re_get_foundations (Global + Theme + Viewport)
+   ============================================================ */
+
+:root {
+  /* ── Colors: Black scale ── */
+  --sds-color-black-900: #000000;
+  --sds-color-black-800: #0d0d0d;
+  --sds-color-black-700: #1b1b1b;
+  --sds-color-black-600: #282828;
+  --sds-color-black-500: #363636;
+  --sds-color-black-400: #434343;
+  --sds-color-black-300: #515151;
+  --sds-color-black-200: #5e5e5e;
+  --sds-color-black-100: #6b6b6b;
+  --sds-color-black-000: #757575;
+
+  /* ── Colors: White scale ── */
+  --sds-color-white-900: #ffffff;
+  --sds-color-white-800: #f7f7f7;
+  --sds-color-white-700: #ededed;
+  --sds-color-white-600: #e3e3e3;
+  --sds-color-white-500: #d4d4d4;
+  --sds-color-white-400: #c4c4c4;
+  --sds-color-white-300: #b3b3b3;
+  --sds-color-white-200: #a1a1a1;
+  --sds-color-white-100: #949494;
+  --sds-color-white-000: #868686;
+
+  /* ── Colors: Cherry (danger) ── */
+  --sds-color-cherry-000: #ffe5e8;
+  --sds-color-cherry-100: #ffccd2;
+  --sds-color-cherry-200: #fdaab2;
+  --sds-color-cherry-300: #f86d78;
+  --sds-color-cherry-400: #f64c5b;
+  --sds-color-cherry-500: #ff1a2d;
+  --sds-color-cherry-600: #d92635;
+  --sds-color-cherry-700: #ae1e2b;
+
+  /* ── Colors: Apricot (warning) ── */
+  --sds-color-apricot-000: #fff2e5;
+  --sds-color-apricot-100: #fee6cd;
+  --sds-color-apricot-200: #f8cca0;
+  --sds-color-apricot-300: #ecb279;
+  --sds-color-apricot-400: #e19951;
+  --sds-color-apricot-500: #ff8c1a;
+  --sds-color-apricot-600: #d98026;
+
+  /* ── Colors: Mint (success) ── */
+  --sds-color-mint-000: #e8fcf9;
+  --sds-color-mint-100: #d6f5f0;
+  --sds-color-mint-200: #abede2;
+  --sds-color-mint-300: #89dcce;
+  --sds-color-mint-400: #70c2b4;
+  --sds-color-mint-500: #17cfb0;
+  --sds-color-mint-600: #4db2a2;
+
+  /* ── Colors: Water (info) ── */
+  --sds-color-water-000: #e5f4ff;
+  --sds-color-water-100: #cdeafe;
+  --sds-color-water-200: #a0d3f8;
+  --sds-color-water-300: #71bdf4;
+  --sds-color-water-400: #4ca6e6;
+  --sds-color-water-500: #1a9fff;
+  --sds-color-water-600: #268fd9;
+
+  /* ── Colors: Blueberry (AI / brand) ── */
+  --sds-color-blueberry-000: #e5eaff;
+  --sds-color-blueberry-100: #cdd6fe;
+  --sds-color-blueberry-200: #a6b2f2;
+  --sds-color-blueberry-300: #7d8ee8;
+  --sds-color-blueberry-400: #576ddb;
+  --sds-color-blueberry-500: #4c6aff;
+  --sds-color-blueberry-600: #2d48d2;
+
+  /* ── Colors: Special ── */
+  --sds-color-special-ai:    #6680ff;
+  --sds-color-special-sales: #23f444;
+
+  /* ── Theme semantic aliases ── */
+  --sds-color-bg-default:             var(--sds-color-black-900);
+  --sds-color-bg-inverse:             var(--sds-color-white-900);
+  --sds-color-bg-low:                 var(--sds-color-black-500);
+  --sds-color-bg-states-hover:        var(--sds-color-black-400);
+  --sds-color-bg-states-pressed:      var(--sds-color-black-300);
+  --sds-color-bg-states-disabled:     var(--sds-color-black-400);
+  --sds-color-content-default:        var(--sds-color-white-900);
+  --sds-color-content-inverse:        var(--sds-color-black-900);
+  --sds-color-content-low:            var(--sds-color-white-400);
+  --sds-color-content-states-hover:   var(--sds-color-white-400);
+  --sds-color-content-states-pressed: var(--sds-color-white-900);
+  --sds-color-content-states-disabled:var(--sds-color-black-000);
+  --sds-color-border-default:         var(--sds-color-white-900);
+  --sds-color-border-inverse:         var(--sds-color-black-900);
+  --sds-color-border-low:             var(--sds-color-black-200);
+  --sds-color-border-states-hover:    var(--sds-color-white-400);
+  --sds-color-border-states-pressed:  var(--sds-color-white-900);
+  --sds-color-border-states-focus:    #6680ff;
+  --sds-color-border-states-disabled: var(--sds-color-black-400);
+  --sds-color-danger-default:         var(--sds-color-cherry-300);
+  --sds-color-danger-hover:           var(--sds-color-cherry-400);
+  --sds-color-danger-pressed:         var(--sds-color-cherry-600);
+  --sds-color-warning-default:        var(--sds-color-apricot-300);
+  --sds-color-warning-hover:          var(--sds-color-apricot-400);
+  --sds-color-warning-pressed:        var(--sds-color-apricot-600);
+  --sds-color-success-default:        var(--sds-color-mint-300);
+  --sds-color-success-hover:          var(--sds-color-mint-400);
+  --sds-color-success-pressed:        var(--sds-color-mint-600);
+
+  /* ── Sizing scale (px) ── */
+  --sds-size-0:   0px;
+  --sds-size-3:   0.5px;
+  --sds-size-6:   1px;
+  --sds-size-25:  4px;
+  --sds-size-50:  8px;
+  --sds-size-75:  12px;
+  --sds-size-100: 16px;
+  --sds-size-125: 20px;
+  --sds-size-150: 24px;
+  --sds-size-200: 32px;
+  --sds-size-250: 40px;
+  --sds-size-300: 48px;
+  --sds-size-350: 56px;
+  --sds-size-400: 64px;
+  --sds-size-450: 72px;
+  --sds-size-500: 80px;
+  --sds-size-600: 96px;
+  --sds-size-700: 112px;
+  --sds-size-800: 128px;
+  --sds-size-900: 144px;
+
+  /* ── Border radius ── */
+  --sds-size-radius-none:    0px;
+  --sds-size-radius-rounded: 4px;
+  --sds-size-radius-full:    144px;
+
+  /* ── Typography: font family ── */
+  --sds-font-family-base: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                           "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+
+  /* ── Typography: weights ── */
+  --sds-font-weight-light:   300;
+  --sds-font-weight-regular: 400;
+  --sds-font-weight-medium:  500;
+  --sds-font-weight-semibold:600;
+  --sds-font-weight-bold:    700;
+
+  /* ── Typography: sizes ── */
+  --sds-font-size-2xs: 10px;
+  --sds-font-size-xs:  11px;
+  --sds-font-size-sm:  12px;
+  --sds-font-size-md:  14px;
+  --sds-font-size-lg:  16px;
+  --sds-font-size-xl:  20px;
+  --sds-font-size-2xl: 24px;
+  --sds-font-size-3xl: 32px;
+  --sds-font-size-4xl: 48px;
+  --sds-font-size-5xl: 64px;
+
+  /* ── Letter spacing ── */
+  --sds-letter-spacing-tight:  -0.02em;
+  --sds-letter-spacing-normal:  0em;
+  --sds-letter-spacing-wide:    0.06em;
+  --sds-letter-spacing-wider:   0.10em;
+  --sds-letter-spacing-widest:  0.14em;
+
+  /* ── Line heights ── */
+  --sds-line-height-tight:  1.1;
+  --sds-line-height-snug:   1.25;
+  --sds-line-height-normal: 1.4;
+  --sds-line-height-loose:  1.6;
+}

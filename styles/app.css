@@ -1,0 +1,124 @@
+/* ============================================================
+   App-level animations & motion
+   IOP Compra · Sewing Design System
+   ============================================================ */
+@import "./foundations.css";
+
+/* ─────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.94); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* ─────────────────────────────────────────
+   ENTRANCE ANIMATIONS
+───────────────────────────────────────── */
+.top-bar {
+  animation: fade-in 0.3s ease both;
+}
+
+.section--alerts {
+  animation: fade-in-up 0.38s ease both;
+  animation-delay: 0.06s;
+}
+
+.section--week {
+  animation: fade-in-up 0.38s ease both;
+  animation-delay: 0.14s;
+}
+
+.section--next-week {
+  animation: fade-in-up 0.38s ease both;
+  animation-delay: 0.22s;
+}
+
+.tab-bar {
+  animation: fade-in 0.3s ease both;
+  animation-delay: 0.28s;
+}
+
+/* ─────────────────────────────────────────
+   ALERT CARD — press feedback
+───────────────────────────────────────── */
+.alert-card {
+  will-change: transform;
+}
+
+.alert-card:active {
+  transform: scale(0.982);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* ─────────────────────────────────────────
+   TAB BAR — tap feedback
+───────────────────────────────────────── */
+.tab-bar__item {
+  will-change: color;
+}
+
+.tab-bar__item:active {
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────
+   SKELETON LOADING (reutilizable)
+───────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--sds-color-white-700) 25%,
+    var(--sds-color-white-600) 50%,
+    var(--sds-color-white-700) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: var(--sds-size-radius-rounded);
+  pointer-events: none;
+}
+
+.skeleton--text {
+  height: var(--sds-size-75);
+  border-radius: var(--sds-size-radius-full);
+}
+
+.skeleton--card {
+  height: 72px;
+  border-radius: var(--sds-size-100);
+}
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION — respeta preferencias
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

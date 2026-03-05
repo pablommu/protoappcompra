@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f0f0f0" />
+
+  <!-- PWA / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="IOP Compra" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <title>IOP Compra</title>
+
+  <!-- Styles (foundations → components → app animations) -->
+  <link rel="stylesheet" href="styles/foundations.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/app.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ════════════════════════════════════════════
+       TOP BAR
+  ════════════════════════════════════════════ -->
+  <header class="top-bar" role="banner">
+
+    <button class="top-bar__btn" aria-label="Perfil de usuario" type="button">
+      <!-- icon: user-outlined (SDS alerts group) -->
+      <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+           xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="8" r="4"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 20c0-3.866 3.582-7 8-7s8 3.134 8 7"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <h1 class="top-bar__title" aria-label="IOP Compra">
+      <span class="top-bar__title-bold">IOP</span><!--
+   --><span class="top-bar__title-light"> COMPRA</span>
+    </h1>
+
+    <!-- Spacer para centrar el título -->
+    <div class="top-bar__spacer" aria-hidden="true"></div>
+
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════ -->
+  <main class="main-content" id="main" role="main">
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 1 · ALERTAS SUGERIDAS (AI)
+    ──────────────────────────────────────── -->
+    <section class="section section--alerts"
+             aria-labelledby="alerts-title">
+
+      <div class="section__header">
+        <h2 class="section__title" id="alerts-title">
+          ALERTAS SUGERIDAS
+        </h2>
+
+        <!-- Badge AI — sds-color-special-ai #6680ff -->
+        <span class="ai-badge" role="note" aria-label="Generado por Inditex AI">
+          <!-- spark / star icon -->
+          <svg class="ai-badge__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5l1.3 3.9 3.9 1.3-3.9 1.3L8 11.9l-1.3-3.9-3.9-1.3 3.9-1.3L8 1.5z"
+                  fill="currentColor"/>
+            <path d="M13 1l.7 2 2 .7-2 .7L13 6.4l-.7-2-2-.7 2-.7L13 1z"
+                  fill="currentColor" opacity="0.6"/>
+          </svg>
+          Inditex AI
+        </span>
+      </div>
+
+      <!-- Carrusel de alertas (scroll horizontal snap) -->
+      <div class="alerts-scroll"
+           role="list"
+           aria-label="Alertas sugeridas por Inditex AI">
+
+        <!-- CARD 1: Warning — Stock bajo -->
+        <article class="alert-card alert-card--warning"
+                 role="listitem"
+                 tabindex="0"
+                 aria-label="Alerta: Stock bajo — Referencia 8923-ZRZ">
+          <div class="alert-card__icon-wrap" aria-hidden="true">
+            <!-- icon: warning-outlined (SDS alerts group) -->
+            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 9v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="16" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <div class="alert-card__content">
+            <p class="alert-card__label">Stock bajo</p>
+            <p class="alert-card__value">Ref. <strong>8923-ZRZ</strong></p>
+            <p class="alert-card__desc">Quedan 3 unidades · Revisa el pedido</p>
+          </div>
+
+          <button class="alert-card__action"
+                  type="button"
+                  aria-label="Ver detalle de alerta stock bajo"
+                  tabindex="-1">
+            <!-- icon: arrow-right-outlined -->
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </article>
+
+        <!-- CARD 2: Info — Pedido demorado -->
+        <article class="alert-card alert-card--info"
+                 role="listitem"
+                 tabindex="0"
+                 aria-label="Alerta: Pedido demorado — PO #44781">
+          <div class="alert-card__icon-wrap" aria-hidden="true">
+            <!-- icon: information-outlined (SDS alerts group) -->
+            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9"
+                      stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 8v.5" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round"/>
+              <path d="M12 11v5" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="alert-card__content">
+            <p class="alert-card__label">Pedido demorado</p>
+            <p class="alert-card__value">PO <strong>#44781</strong></p>
+            <p class="alert-card__desc">Retraso de 4 días en embarque</p>
+          </div>
+
+          <button class="alert-card__action"
+                  type="button"
+                  aria-label="Ver detalle de alerta pedido demorado"
+                  tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </article>
+
+        <!-- CARD 3: Success — Markup óptimo -->
+        <article class="alert-card alert-card--success"
+                 role="listitem"
+                 tabindex="0"
+                 aria-label="Alerta: Markup óptimo — Categoría Mujer">
+          <div class="alert-card__icon-wrap" aria-hidden="true">
+            <!-- icon: check-circle-outlined (SDS actions group) -->
+            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9"
+                      stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 12l3 3 5-5"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="alert-card__content">
+            <p class="alert-card__label">Markup óptimo</p>
+            <p class="alert-card__value">Categoría <strong>Mujer</strong></p>
+            <p class="alert-card__desc">Markup en rango objetivo esta semana</p>
+          </div>
+
+          <button class="alert-card__action"
+                  type="button"
+                  aria-label="Ver detalle de alerta markup óptimo"
+                  tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </article>
+
+        <!-- CARD 4: Danger — Facturación crítica -->
+        <article class="alert-card alert-card--danger"
+                 role="listitem"
+                 tabindex="0"
+                 aria-label="Alerta: Facturación crítica — Semana 02–08 Feb">
+          <div class="alert-card__icon-wrap" aria-hidden="true">
+            <!-- icon: close-circle-outlined (SDS actions group) -->
+            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9"
+                      stroke="currentColor" stroke-width="1.5"/>
+              <path d="M15 9l-6 6M9 9l6 6"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="alert-card__content">
+            <p class="alert-card__label">Facturación crítica</p>
+            <p class="alert-card__value">Semana <strong>02–08 Feb</strong></p>
+            <p class="alert-card__desc">Por debajo del umbral mínimo</p>
+          </div>
+
+          <button class="alert-card__action"
+                  type="button"
+                  aria-label="Ver detalle de alerta facturación crítica"
+                  tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </article>
+
+      </div><!-- /.alerts-scroll -->
+
+      <!-- Indicador de posición (dots) -->
+      <div class="carousel-dots" role="tablist" aria-label="Posición en el carrusel de alertas">
+        <button class="carousel-dot carousel-dot--active"
+                role="tab" type="button"
+                aria-selected="true"
+                aria-label="Alerta 1 de 4: Stock bajo"></button>
+        <button class="carousel-dot"
+                role="tab" type="button"
+                aria-selected="false"
+                aria-label="Alerta 2 de 4: Pedido demorado"></button>
+        <button class="carousel-dot"
+                role="tab" type="button"
+                aria-selected="false"
+                aria-label="Alerta 3 de 4: Markup óptimo"></button>
+        <button class="carousel-dot"
+                role="tab" type="button"
+                aria-selected="false"
+                aria-label="Alerta 4 de 4: Facturación crítica"></button>
+      </div>
+
+    </section><!-- /.section--alerts -->
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 2 · TU SEMANA
+    ──────────────────────────────────────── -->
+    <section class="section section--week"
+             aria-labelledby="this-week-title">
+
+      <div class="week-header">
+        <h2 class="week-header__title" id="this-week-title">TU SEMANA</h2>
+        <span class="week-header__range" aria-label="Del 02 al 08 de febrero">
+          02 - 08 FEB
+        </span>
+      </div>
+
+      <div class="week-divider" role="separator" aria-hidden="true"></div>
+
+      <dl class="week-stats" aria-label="Estadísticas de tu semana">
+        <div class="week-stat">
+          <dt class="week-stat__label">FACTURACIÓN</dt>
+          <dd class="week-stat__value">15</dd>
+        </div>
+        <div class="week-stat">
+          <dt class="week-stat__label">EMBARQUES</dt>
+          <dd class="week-stat__value">10</dd>
+        </div>
+      </dl>
+
+    </section><!-- /.section--week -->
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 3 · PRÓXIMA SEMANA
+    ──────────────────────────────────────── -->
+    <section class="section section--next-week"
+             aria-labelledby="next-week-title">
+
+      <div class="week-header">
+        <h2 class="week-header__title" id="next-week-title">PRÓXIMA SEMANA</h2>
+        <span class="week-header__range" aria-label="Del 09 al 15 de febrero">
+          09 - 15 FEB
+        </span>
+      </div>
+
+      <div class="week-divider" role="separator" aria-hidden="true"></div>
+
+      <dl class="week-stats" aria-label="Estadísticas de próxima semana">
+        <div class="week-stat">
+          <dt class="week-stat__label">FACTURACIÓN</dt>
+          <dd class="week-stat__value">8</dd>
+        </div>
+        <div class="week-stat">
+          <dt class="week-stat__label">EMBARQUES</dt>
+          <dd class="week-stat__value">11</dd>
+        </div>
+      </dl>
+
+    </section><!-- /.section--next-week -->
+
+  </main><!-- /.main-content -->
+
+  <!-- ════════════════════════════════════════════
+       BOTTOM TAB BAR
+  ════════════════════════════════════════════ -->
+  <nav class="tab-bar" role="navigation" aria-label="Navegación principal">
+
+    <!-- HOME (activo) -->
+    <button class="tab-bar__item tab-bar__item--active"
+            type="button"
+            aria-current="page"
+            aria-label="Home">
+      <!-- indicador superior -->
+      <span class="tab-bar__indicator" aria-hidden="true"></span>
+      <!-- icon: home-filled (SDS others group) -->
+      <svg class="tab-bar__icon" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1H15v-6H9v6H4a1 1 0 01-1-1V10.5z"
+              fill="currentColor"/>
+      </svg>
+      <span class="tab-bar__label">Home</span>
+    </button>
+
+    <!-- PEDIDOS -->
+    <button class="tab-bar__item"
+            type="button"
+            aria-label="Pedidos">
+      <!-- icon: shopping-cart-outlined (SDS shopping group) -->
+      <svg class="tab-bar__icon" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 2L3 6v14a1 1 0 001 1h16a1 1 0 001-1V6l-3-4H6z"
+              stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 6h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 10a4 4 0 01-8 0"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="tab-bar__label">Pedidos</span>
+    </button>
+
+    <!-- BUSCAR -->
+    <button class="tab-bar__item"
+            type="button"
+            aria-label="Buscar">
+      <!-- icon: search-outlined (SDS actions group) -->
+      <svg class="tab-bar__icon" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"
+                stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16.5 16.5l4 4"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="tab-bar__label">Buscar</span>
+    </button>
+
+  </nav><!-- /.tab-bar -->
+
+</div><!-- /#app -->
+
+<script src="src/app.js"></script>
+</body>
+</html>
