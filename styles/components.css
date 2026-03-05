@@ -244,7 +244,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--sds-size-50);
-  padding: var(--sds-size-75) var(--sds-size-100);
+  padding: 0 var(--sds-size-100) var(--sds-size-125);
   margin-right: var(--sds-size-75);
   background-color: var(--app-bg-surface);
   border-radius: var(--sds-size-100);
@@ -305,6 +305,7 @@ button:focus-visible {
   flex-direction: row;
   align-items: center;
   gap: var(--sds-size-75);
+  margin-top: var(--sds-size-50);
   margin-bottom: var(--sds-size-50);
 }
 
@@ -414,6 +415,7 @@ button:focus-visible {
 .section--kpis {
   flex-shrink: 0;
   position: relative;
+  padding-top: 0;
   padding-left: 0;
   padding-right: 0;
   padding-bottom: var(--sds-size-75);
