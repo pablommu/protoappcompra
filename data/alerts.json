@@ -1,0 +1,28 @@
+{
+  "alerts": [
+    {
+      "type": "warning",
+      "label": "Pedido sin booking",
+      "value": "PO <strong>#45210</strong>",
+      "desc": "Embarque en 3 días · Sin booking asociado",
+      "action": "Solicitar booking",
+      "ariaLabel": "Alerta: Pedido con embarque próximo sin booking asociado — PO #45210"
+    },
+    {
+      "type": "info",
+      "label": "Pedido en borrador",
+      "value": "PO <strong>#45322</strong>",
+      "desc": "Handover en menos de 1 mes",
+      "action": "Completar pedido",
+      "ariaLabel": "Alerta: Pedido en borrador con fecha de handover menor a un mes — PO #45322"
+    },
+    {
+      "type": "danger",
+      "label": "Muestra no recibida",
+      "value": "Proveedor <strong>TexGlobal</strong>",
+      "desc": "Pendiente de recepción desde hace 5 días",
+      "action": "Contactar proveedor",
+      "ariaLabel": "Alerta: Muestra no recibida de proveedor — Proveedor TexGlobal"
+    }
+  ]
+}
