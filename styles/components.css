@@ -299,6 +299,15 @@ button:focus-visible {
   color: var(--sds-color-cherry-500);
 }
 
+/* Header - Icon and Label in row */
+.alert-card__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sds-size-75);
+  margin-bottom: var(--sds-size-50);
+}
+
 /* Content */
 .alert-card__content {
   flex: 1;
@@ -311,8 +320,8 @@ button:focus-visible {
   font-weight: var(--sds-font-weight-medium);
   letter-spacing: var(--sds-letter-spacing-wide);
   text-transform: uppercase;
-  margin-bottom: 2px;
   line-height: var(--sds-line-height-tight);
+  margin: 0;
 }
 
 .alert-card--warning .alert-card__label { color: var(--sds-color-apricot-600); }

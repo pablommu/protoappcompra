@@ -44,11 +44,13 @@
                role="listitem"
                tabindex="0"
                aria-label="${alert.ariaLabel}">
-        <div class="alert-card__icon-wrap" aria-hidden="true">
-          ${ALERT_ICONS[alert.type] ?? ALERT_ICONS.info}
+        <div class="alert-card__header">
+          <div class="alert-card__icon-wrap" aria-hidden="true">
+            ${ALERT_ICONS[alert.type] ?? ALERT_ICONS.info}
+          </div>
+          <p class="alert-card__label">${alert.label}</p>
         </div>
         <div class="alert-card__content">
-          <p class="alert-card__label">${alert.label}</p>
           <p class="alert-card__value">${alert.value}</p>
           <p class="alert-card__desc">${alert.desc}</p>
         </div>
