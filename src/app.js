@@ -7,6 +7,91 @@
   'use strict';
 
   /* ─────────────────────────────────────────────────────────
+     ALERT ICONS — SVG por tipo de alerta
+  ───────────────────────────────────────────────────────── */
+  const ALERT_ICONS = {
+    warning: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 9v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="12" cy="16" r="1" fill="currentColor"/>
+    </svg>`,
+    info: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 8v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M12 11v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>`,
+    success: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    danger: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>`,
+  };
+
+  const ARROW_ICON = `<svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+
+  /* ─────────────────────────────────────────────────────────
+     LOAD ALERTS — fetch data/alerts.json y renderiza cards
+  ───────────────────────────────────────────────────────── */
+  function renderAlertCard(alert, index, total) {
+    return `
+      <article class="alert-card alert-card--${alert.type}"
+               role="listitem"
+               tabindex="0"
+               aria-label="${alert.ariaLabel}">
+        <div class="alert-card__icon-wrap" aria-hidden="true">
+          ${ALERT_ICONS[alert.type] ?? ALERT_ICONS.info}
+        </div>
+        <div class="alert-card__content">
+          <p class="alert-card__label">${alert.label}</p>
+          <p class="alert-card__value">${alert.value}</p>
+          <p class="alert-card__desc">${alert.desc}</p>
+        </div>
+        <button class="alert-card__action"
+                type="button"
+                aria-label="${alert.action}"
+                tabindex="-1">
+          <span class="alert-card__action-label">${alert.action}</span>
+          ${ARROW_ICON}
+        </button>
+      </article>`;
+  }
+
+  function renderDot(index, total, label) {
+    const isFirst = index === 0;
+    return `<button class="carousel-dot${isFirst ? ' carousel-dot--active' : ''}"
+              role="tab" type="button"
+              aria-selected="${isFirst}"
+              aria-label="Alerta ${index + 1} de ${total}: ${label}"></button>`;
+  }
+
+  async function loadAlerts() {
+    const scroll    = document.querySelector('.alerts-scroll');
+    const dotsWrap  = document.querySelector('.carousel-dots');
+
+    if (!scroll || !dotsWrap) return;
+
+    try {
+      const res  = await fetch('data/alerts.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const { alerts } = await res.json();
+
+      scroll.innerHTML   = alerts.map((a, i) => renderAlertCard(a, i, alerts.length)).join('');
+      dotsWrap.innerHTML = alerts.map((a, i) => renderDot(i, alerts.length, a.label)).join('');
+
+      initAlertCarousel();
+      initAlertActions();
+    } catch (err) {
+      console.error('[IOP Compra] Error cargando alertas:', err);
+    }
+  }
+
+  /* ─────────────────────────────────────────────────────────
      CAROUSEL — sincroniza dots con scroll horizontal
   ───────────────────────────────────────────────────────── */
   function initAlertCarousel() {
@@ -71,6 +156,45 @@
         cards[activeIndex - 1].focus({ preventScroll: true });
       }
     });
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     KPI SCROLL — scroll vertical con snap, sincroniza dots
+  ───────────────────────────────────────────────────────── */
+  function initKpiScroll() {
+    const scroll   = document.querySelector('.kpi-scroll');
+    const dotsWrap = document.querySelector('.kpi-dots');
+    if (!scroll || !dotsWrap) return;
+
+    const items = Array.from(scroll.querySelectorAll('.kpi-item'));
+    let activeIndex = 0;
+
+    // Renderiza dots
+    dotsWrap.innerHTML = items.map((_, i) =>
+      `<span class="kpi-dot${i === 0 ? ' kpi-dot--active' : ''}"></span>`
+    ).join('');
+    const dots = Array.from(dotsWrap.querySelectorAll('.kpi-dot'));
+
+    function setActive(index) {
+      if (index === activeIndex) return;
+      dots[activeIndex].classList.remove('kpi-dot--active');
+      activeIndex = index;
+      dots[activeIndex].classList.add('kpi-dot--active');
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            const idx = items.indexOf(entry.target);
+            if (idx !== -1) setActive(idx);
+          }
+        });
+      },
+      { root: scroll, threshold: 0.6 }
+    );
+
+    items.forEach((item) => observer.observe(item));
   }
 
   /* ─────────────────────────────────────────────────────────
@@ -140,9 +264,9 @@
      BOOT
   ───────────────────────────────────────────────────────── */
   function init() {
-    initAlertCarousel();
+    loadAlerts();   // async: fetch JSON → render cards + dots → init carousel
+    initKpiScroll();
     initTabBar();
-    initAlertActions();
     formatStats();
   }
 
