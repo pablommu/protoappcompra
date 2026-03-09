@@ -45,19 +45,19 @@
   animation-delay: 0.02s;
 }
 
-.section--alerts {
-  animation: fade-in-up 0.38s ease both;
-  animation-delay: 0.06s;
-}
-
 .section--week {
   animation: fade-in-up 0.38s ease both;
-  animation-delay: 0.14s;
+  animation-delay: 0.08s;
+}
+
+.section--risks {
+  animation: fade-in-up 0.38s ease both;
+  animation-delay: 0.16s;
 }
 
 .section--next-week {
   animation: fade-in-up 0.38s ease both;
-  animation-delay: 0.22s;
+  animation-delay: 0.24s;
 }
 
 .tab-bar {

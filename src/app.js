@@ -1,264 +1,220 @@
 /**
  * IOP Compra — Home SPA
- * Interactividad: carrusel de alertas, tab bar, feedback táctil
+ * Interactividad: tab bar, KPI carousel (scroll snap), dropdown campaña
  */
 
 (function () {
   'use strict';
 
   /* ─────────────────────────────────────────────────────────
-     ALERT ICONS — SVG por tipo de alerta
+     KPI DATA — valores por campaña
   ───────────────────────────────────────────────────────── */
-  const ALERT_ICONS = {
-    warning: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 9v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="12" cy="16" r="1" fill="currentColor"/>
-    </svg>`,
-    info: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M12 8v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M12 11v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>`,
-    success: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    danger: `<svg class="icon icon--md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>`,
+  const KPI_BY_CAMPAIGN = {
+    I26: [
+      { label: 'MARKUP',    tag: 'I26',     value: '201,61', unit: '%'   },
+      { label: 'COBERTURA', tag: 'I26',     value: '4,2',    unit: 'sem' },
+      { label: 'PEDIDOS',   tag: 'ACTIVOS', value: '38',     unit: ''    },
+    ],
+    V26: [
+      { label: 'MARKUP',    tag: 'V26',     value: '198,30', unit: '%'   },
+      { label: 'COBERTURA', tag: 'V26',     value: '3,8',    unit: 'sem' },
+      { label: 'PEDIDOS',   tag: 'ACTIVOS', value: '42',     unit: ''    },
+    ],
+    I25: [
+      { label: 'MARKUP',    tag: 'I25',     value: '195,12', unit: '%'   },
+      { label: 'COBERTURA', tag: 'I25',     value: '5,1',    unit: 'sem' },
+      { label: 'PEDIDOS',   tag: 'ACTIVOS', value: '31',     unit: ''    },
+    ],
+    V25: [
+      { label: 'MARKUP',    tag: 'V25',     value: '202,88', unit: '%'   },
+      { label: 'COBERTURA', tag: 'V25',     value: '4,6',    unit: 'sem' },
+      { label: 'PEDIDOS',   tag: 'ACTIVOS', value: '27',     unit: ''    },
+    ],
+    I24: [
+      { label: 'MARKUP',    tag: 'I24',     value: '189,74', unit: '%'   },
+      { label: 'COBERTURA', tag: 'I24',     value: '3,9',    unit: 'sem' },
+      { label: 'PEDIDOS',   tag: 'ACTIVOS', value: '35',     unit: ''    },
+    ],
   };
 
-  const ARROW_ICON = `<svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
+  let currentCampaign = 'I26';
 
   /* ─────────────────────────────────────────────────────────
-     LOAD ALERTS — fetch data/alerts.json y renderiza cards
+     KPI CAROUSEL — scroll snap VERTICAL + dots clickables
   ───────────────────────────────────────────────────────── */
-  function renderAlertCard(alert, index, total) {
-    return `
-      <article class="alert-card alert-card--${alert.type}"
-               role="listitem"
-               tabindex="0"
-               aria-label="${alert.ariaLabel}">
-        <div class="alert-card__header">
-          <div class="alert-card__icon-wrap" aria-hidden="true">
-            ${ALERT_ICONS[alert.type] ?? ALERT_ICONS.info}
-          </div>
-          <p class="alert-card__label">${alert.label}</p>
-        </div>
-        <div class="alert-card__content">
-          <p class="alert-card__value">${alert.value}</p>
-          <p class="alert-card__desc">${alert.desc}</p>
-        </div>
-        <button class="alert-card__action"
-                type="button"
-                aria-label="${alert.action}"
-                tabindex="-1">
-          <span class="alert-card__action-label">${alert.action}</span>
-          ${ARROW_ICON}
-        </button>
-      </article>`;
-  }
+  function initKpiCarousel() {
+    var carousel      = document.getElementById('kpi-carousel');
+    var dots          = Array.from(document.querySelectorAll('.kpi-page-dot'));
+    var metricLabelEl = document.getElementById('kpi-metric-label');
+    var campaignTagEl = document.getElementById('kpi-campaign-tag');
 
-  function renderDot(index, total, label) {
-    const isFirst = index === 0;
-    return `<button class="carousel-dot${isFirst ? ' carousel-dot--active' : ''}"
-              role="tab" type="button"
-              aria-selected="${isFirst}"
-              aria-label="Alerta ${index + 1} de ${total}: ${label}"></button>`;
-  }
+    if (!carousel) return null;
 
-  async function loadAlerts() {
-    const scroll    = document.querySelector('.alerts-scroll');
-    const dotsWrap  = document.querySelector('.carousel-dots');
-
-    if (!scroll || !dotsWrap) return;
-
-    try {
-      const res  = await fetch('data/alerts.json');
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const { alerts } = await res.json();
-
-      scroll.innerHTML   = alerts.map((a, i) => renderAlertCard(a, i, alerts.length)).join('');
-      dotsWrap.innerHTML = alerts.map((a, i) => renderDot(i, alerts.length, a.label)).join('');
-
-      initAlertCarousel();
-      initAlertActions();
-    } catch (err) {
-      console.error('[IOP Compra] Error cargando alertas:', err);
-    }
-  }
-
-  /* ─────────────────────────────────────────────────────────
-     CAROUSEL — sincroniza dots con scroll horizontal
-  ───────────────────────────────────────────────────────── */
-  function initAlertCarousel() {
-    const scroll = document.querySelector('.alerts-scroll');
-    const dots   = Array.from(document.querySelectorAll('.carousel-dot'));
-
-    if (!scroll || !dots.length) return;
-
-    let activeIndex = 0;
-
-    function setActive(index) {
-      if (index === activeIndex) return;
-      dots[activeIndex].classList.remove('carousel-dot--active');
-      dots[activeIndex].setAttribute('aria-selected', 'false');
-      activeIndex = index;
-      dots[activeIndex].classList.add('carousel-dot--active');
-      dots[activeIndex].setAttribute('aria-selected', 'true');
+    /** Navega al slide indicado con animación */
+    function goToSlide(index) {
+      var slideHeight = carousel.clientHeight;
+      carousel.scrollTo({ top: index * slideHeight, behavior: 'smooth' });
+      syncState(index);
     }
 
-    // IntersectionObserver: marca el card visible como activo
-    const cards = Array.from(scroll.querySelectorAll('.alert-card'));
+    /** Sincroniza el header (label+tag) y los dots con el slide visible */
+    function syncState(index) {
+      var kpis = KPI_BY_CAMPAIGN[currentCampaign];
+      var kpi  = kpis[index];
+      if (!kpi) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-            const idx = cards.indexOf(entry.target);
-            if (idx !== -1) setActive(idx);
-          }
-        });
-      },
-      { root: scroll, threshold: 0.55 }
-    );
+      metricLabelEl.textContent = kpi.label;
+      campaignTagEl.textContent = kpi.tag;
 
-    cards.forEach((card) => observer.observe(card));
+      var btn = document.getElementById('campaign-btn');
+      if (btn) btn.setAttribute('aria-label', 'Cambiar campaña: ' + kpi.tag);
 
-    // Dot → scroll to card
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        if (!cards[i]) return;
-        cards[i].scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'start',
-        });
+      dots.forEach(function(dot, i) {
+        var isActive = i === index;
+        dot.classList.toggle('kpi-page-dot--inactive', !isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    /** Rellena los slides con los datos de la campaña activa */
+    function renderCampaign(campaign) {
+      currentCampaign = campaign;
+      var kpis   = KPI_BY_CAMPAIGN[campaign];
+      var slides = Array.from(carousel.querySelectorAll('.kpi-slide'));
+
+      slides.forEach(function(slide, i) {
+        var kpi    = kpis[i];
+        var valEl  = slide.querySelector('.kpi-hero__value');
+        var unitEl = slide.querySelector('.kpi-hero__unit');
+        if (valEl)  valEl.textContent  = kpi.value;
+        if (unitEl) unitEl.textContent = kpi.unit;
+      });
+
+      // Volver al primer slide instantáneamente (sin animación)
+      carousel.scrollTop = 0;
+      syncState(0);
+    }
+
+    // ── Click en dots → navegación directa al slide ──
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        goToSlide(i);
       });
     });
 
-    // Keyboard navigation dentro del scroll
-    scroll.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' && activeIndex < cards.length - 1) {
-        e.preventDefault();
-        cards[activeIndex + 1].scrollIntoView({
-          behavior: 'smooth', inline: 'start', block: 'nearest',
+    // ── Detectar slide visible cuando el scroll vertical se detiene ──
+    var scrollTimer = null;
+    carousel.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        var slideHeight = carousel.clientHeight;
+        if (slideHeight === 0) return;
+        var idx = Math.round(carousel.scrollTop / slideHeight);
+        syncState(idx);
+      }, 60);
+    }, { passive: true });
+
+    // Estado inicial
+    syncState(0);
+
+    return { renderCampaign: renderCampaign };
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     CAMPAIGN DROPDOWN — abre/cierra con animación
+  ───────────────────────────────────────────────────────── */
+  function initCampaignDropdown(carouselCtrl) {
+    var btn      = document.getElementById('campaign-btn');
+    var dropdown = document.getElementById('campaign-dropdown');
+    if (!btn || !dropdown) return;
+
+    function openDropdown() {
+      dropdown.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      dropdown.style.transition = 'none';
+      dropdown.style.opacity    = '0';
+      dropdown.style.transform  = 'translateY(-6px) scale(0.97)';
+      requestAnimationFrame(function() {
+        dropdown.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+        dropdown.style.opacity    = '1';
+        dropdown.style.transform  = 'translateY(0) scale(1)';
+      });
+    }
+
+    function closeDropdown() {
+      btn.setAttribute('aria-expanded', 'false');
+      dropdown.style.transition = 'opacity 0.14s ease, transform 0.14s ease';
+      dropdown.style.opacity    = '0';
+      dropdown.style.transform  = 'translateY(-4px) scale(0.97)';
+      setTimeout(function() {
+        dropdown.hidden = true;
+        dropdown.style.cssText  = '';
+      }, 140);
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dropdown.hidden ? openDropdown() : closeDropdown();
+    });
+
+    Array.from(dropdown.querySelectorAll('.campaign-option')).forEach(function(opt) {
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var campaign = opt.dataset.campaign;
+
+        // Actualizar selección visual
+        Array.from(dropdown.querySelectorAll('.campaign-option')).forEach(function(o) {
+          o.classList.toggle('campaign-option--active', o === opt);
+          o.setAttribute('aria-selected', o === opt ? 'true' : 'false');
         });
-        cards[activeIndex + 1].focus({ preventScroll: true });
-      } else if (e.key === 'ArrowLeft' && activeIndex > 0) {
-        e.preventDefault();
-        cards[activeIndex - 1].scrollIntoView({
-          behavior: 'smooth', inline: 'start', block: 'nearest',
-        });
-        cards[activeIndex - 1].focus({ preventScroll: true });
-      }
+
+        if (carouselCtrl) carouselCtrl.renderCampaign(campaign);
+        closeDropdown();
+      });
+    });
+
+    // Cerrar al tocar fuera
+    document.addEventListener('click', function() {
+      if (!dropdown.hidden) closeDropdown();
     });
   }
 
   /* ─────────────────────────────────────────────────────────
-     KPI SCROLL — scroll vertical con snap, sincroniza dots
-  ───────────────────────────────────────────────────────── */
-  function initKpiScroll() {
-    const scroll   = document.querySelector('.kpi-scroll');
-    const dotsWrap = document.querySelector('.kpi-dots');
-    if (!scroll || !dotsWrap) return;
-
-    const items = Array.from(scroll.querySelectorAll('.kpi-item'));
-    let activeIndex = 0;
-
-    // Renderiza dots
-    dotsWrap.innerHTML = items.map((_, i) =>
-      `<span class="kpi-dot${i === 0 ? ' kpi-dot--active' : ''}"></span>`
-    ).join('');
-    const dots = Array.from(dotsWrap.querySelectorAll('.kpi-dot'));
-
-    function setActive(index) {
-      if (index === activeIndex) return;
-      dots[activeIndex].classList.remove('kpi-dot--active');
-      activeIndex = index;
-      dots[activeIndex].classList.add('kpi-dot--active');
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-            const idx = items.indexOf(entry.target);
-            if (idx !== -1) setActive(idx);
-          }
-        });
-      },
-      { root: scroll, threshold: 0.6 }
-    );
-
-    items.forEach((item) => observer.observe(item));
-  }
-
-  /* ─────────────────────────────────────────────────────────
-     TAB BAR — gestiona estado activo entre pestañas
+     TAB BAR
   ───────────────────────────────────────────────────────── */
   function initTabBar() {
-    const tabs = Array.from(document.querySelectorAll('.tab-bar__item'));
+    var tabs = Array.from(document.querySelectorAll('.tab-bar__item'));
 
     function activateTab(tab) {
-      tabs.forEach((t) => {
-        const isTarget = t === tab;
+      tabs.forEach(function(t) {
+        var isTarget = t === tab;
         t.classList.toggle('tab-bar__item--active', isTarget);
-        if (isTarget) {
-          t.setAttribute('aria-current', 'page');
-        } else {
-          t.removeAttribute('aria-current');
-        }
+        isTarget ? t.setAttribute('aria-current', 'page') : t.removeAttribute('aria-current');
 
-        // Gestiona indicador superior
-        const existing = t.querySelector('.tab-bar__indicator');
+        var existing = t.querySelector('.tab-bar__indicator');
         if (isTarget && !existing) {
-          const indicator = document.createElement('span');
-          indicator.className = 'tab-bar__indicator';
-          indicator.setAttribute('aria-hidden', 'true');
-          t.prepend(indicator);
+          var ind = document.createElement('span');
+          ind.className = 'tab-bar__indicator';
+          ind.setAttribute('aria-hidden', 'true');
+          t.appendChild(ind);
         } else if (!isTarget && existing) {
           existing.remove();
         }
       });
     }
 
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => activateTab(tab));
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() { activateTab(tab); });
     });
   }
 
   /* ─────────────────────────────────────────────────────────
-     ALERT CARDS — feedback táctil en acción
-  ───────────────────────────────────────────────────────── */
-  function initAlertActions() {
-    document.querySelectorAll('.alert-card__action').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const card  = btn.closest('.alert-card');
-        const label = card?.querySelector('.alert-card__label')?.textContent ?? '';
-        const value = card?.querySelector('.alert-card__value')?.textContent ?? '';
-        // En producción abriría un drawer/modal con el detalle
-        console.info(`[IOP Compra] Alerta: ${label.trim()} — ${value.trim()}`);
-      });
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────
-     WEEK STATS — formatea números con separador de miles
-     (datos estáticos en este prototipo)
+     WEEK STATS — separador de miles
   ───────────────────────────────────────────────────────── */
   function formatStats() {
-    document.querySelectorAll('.week-stat__value').forEach((el) => {
-      const raw = parseInt(el.textContent, 10);
-      if (!isNaN(raw) && raw >= 1000) {
-        el.textContent = raw.toLocaleString('es-ES');
-      }
+    document.querySelectorAll('.week-stat__value').forEach(function(el) {
+      var raw = parseInt(el.textContent, 10);
+      if (!isNaN(raw) && raw >= 1000) el.textContent = raw.toLocaleString('es-ES');
     });
   }
 
@@ -266,8 +222,8 @@
      BOOT
   ───────────────────────────────────────────────────────── */
   function init() {
-    loadAlerts();   // async: fetch JSON → render cards + dots → init carousel
-    initKpiScroll();
+    var carouselCtrl = initKpiCarousel();
+    initCampaignDropdown(carouselCtrl);
     initTabBar();
     formatStats();
   }

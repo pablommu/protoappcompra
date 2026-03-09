@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#f0f0f0" />
+  <meta name="theme-color" content="transparent" />
 
   <!-- PWA / iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -21,6 +21,9 @@
 <body>
 
 <div id="app">
+
+  <!-- Fondo decorativo — imagen de movimiento abstracto -->
+  <div class="app-bg" aria-hidden="true"></div>
 
   <!-- ════════════════════════════════════════════
        TOP BAR
@@ -52,53 +55,98 @@
        MAIN
   ════════════════════════════════════════════ -->
   <main class="main-content" id="main" role="main">
-
     <!-- ────────────────────────────────────────
-         SECCIÓN 0 · INDICADORES CLAVE
+         SECCIÓN 0 · INDICADOR KPI PRINCIPAL
+         Scroll vertical con snap entre KPIs
     ──────────────────────────────────────── -->
-    <section class="section section--kpis" aria-label="Indicadores clave">
-      <dl class="kpi-scroll" aria-label="Indicadores clave">
+    <section class="section section--kpis" aria-label="Indicadores principales">
 
-        <div class="kpi-item">
-          <dt class="kpi-item__label">MARKUP MEDIO</dt>
-          <dd class="kpi-item__row">
-            <span class="kpi-item__value">201,61</span>
-            <span class="kpi-item__unit">%</span>
-          </dd>
+      <!-- Selector de KPI (campaña) — abre dropdown -->
+      <div class="kpi-selector">
+        <button class="kpi-selector__btn" type="button"
+                id="campaign-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="campaign-dropdown"
+                aria-label="Cambiar campaña: I26">
+          <span class="kpi-selector__label" id="kpi-metric-label">MARKUP</span>
+          <span class="kpi-selector__tag" id="kpi-campaign-tag">I26</span>
+          <svg class="kpi-selector__chevron icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dropdown de campaña -->
+      <div class="campaign-dropdown" id="campaign-dropdown"
+           role="listbox" aria-label="Seleccionar campaña" hidden>
+        <button class="campaign-option campaign-option--active" role="option" aria-selected="true"  data-campaign="I26">I26</button>
+        <button class="campaign-option" role="option" aria-selected="false" data-campaign="V26">V26</button>
+        <button class="campaign-option" role="option" aria-selected="false" data-campaign="I25">I25</button>
+        <button class="campaign-option" role="option" aria-selected="false" data-campaign="V25">V25</button>
+        <button class="campaign-option" role="option" aria-selected="false" data-campaign="I24">I24</button>
+      </div>
+
+      <!-- Fila: carousel vertical + dots a la derecha -->
+      <div class="kpi-area">
+
+        <!-- Carousel vertical con snap -->
+        <div class="kpi-carousel" id="kpi-carousel">
+          <div class="kpi-slide" data-index="0">
+            <div class="kpi-hero__row">
+              <span class="kpi-hero__value">201,61</span>
+              <span class="kpi-hero__unit">%</span>
+            </div>
+          </div>
+          <div class="kpi-slide" data-index="1">
+            <div class="kpi-hero__row">
+              <span class="kpi-hero__value">4,2</span>
+              <span class="kpi-hero__unit">sem</span>
+            </div>
+          </div>
+          <div class="kpi-slide" data-index="2">
+            <div class="kpi-hero__row">
+              <span class="kpi-hero__value">38</span>
+              <span class="kpi-hero__unit"></span>
+            </div>
+          </div>
+        </div><!-- /.kpi-carousel -->
+
+        <!-- Page control vertical — clickable -->
+        <div class="kpi-page-control" role="tablist" aria-label="Cambiar indicador">
+          <button class="kpi-page-dot" data-dot="0" role="tab" aria-selected="true"  aria-label="MARKUP"></button>
+          <button class="kpi-page-dot kpi-page-dot--inactive" data-dot="1" role="tab" aria-selected="false" aria-label="COBERTURA"></button>
+          <button class="kpi-page-dot kpi-page-dot--inactive" data-dot="2" role="tab" aria-selected="false" aria-label="PEDIDOS"></button>
         </div>
 
-        <div class="kpi-item">
-          <dt class="kpi-item__label">COBERTURA</dt>
-          <dd class="kpi-item__row">
-            <span class="kpi-item__value">4,2</span>
-            <span class="kpi-item__unit">sem</span>
-          </dd>
-        </div>
-
-        <div class="kpi-item">
-          <dt class="kpi-item__label">PEDIDOS ACTIVOS</dt>
-          <dd class="kpi-item__row">
-            <span class="kpi-item__value">38</span>
-          </dd>
-        </div>
-
-      </dl>
-
-      <!-- Dots de posición -->
-      <div class="kpi-dots" role="tablist" aria-label="Indicador activo"></div>
+      </div><!-- /.kpi-area -->
 
     </section><!-- /.section--kpis -->
 
     <!-- ────────────────────────────────────────
-         SECCIÓN 1 · TU SEMANA
+         SECCIÓN 1 · RIESGOS
+    ──────────────────────────────────────── -->
+    <section class="section section--risks" aria-labelledby="risks-title">
+      <div class="risks-card">
+        <h2 class="risks-card__title" id="risks-title">RIESGOS</h2>
+        <ul class="risks-card__list" aria-label="Riesgos activos">
+          <li class="risks-card__item">Hay 2 pedidos formalizados sin Ok Producción.</li>
+          <li class="risks-card__item">Hay 1 pedido sin booking con embarque próximo.</li>
+        </ul>
+      </div>
+    </section><!-- /.section--risks -->
+
+    <!-- ────────────────────────────────────────
+         SECCIÓN 2 · TU SEMANA
     ──────────────────────────────────────── -->
     <section class="section section--week"
              aria-labelledby="this-week-title">
 
       <div class="week-header">
         <h2 class="week-header__title" id="this-week-title">TU SEMANA</h2>
-        <span class="week-header__range" aria-label="Del 02 al 08 de marzo">
-          02 - 08 MAR
+        <span class="week-header__range" aria-label="Del 02 al 08 de febrero">
+          02 - 08 FEB
         </span>
       </div>
 
@@ -118,15 +166,15 @@
     </section><!-- /.section--week -->
 
     <!-- ────────────────────────────────────────
-         SECCIÓN 2 · PRÓXIMA SEMANA
+         SECCIÓN 3 · PRÓXIMA SEMANA
     ──────────────────────────────────────── -->
     <section class="section section--next-week"
              aria-labelledby="next-week-title">
 
       <div class="week-header">
         <h2 class="week-header__title" id="next-week-title">PRÓXIMA SEMANA</h2>
-        <span class="week-header__range" aria-label="Del 09 al 15 de marzo">
-          09 - 15 MAR
+        <span class="week-header__range" aria-label="Del 09 al 15 de febrero">
+          09 - 15 FEB
         </span>
       </div>
 
@@ -139,41 +187,11 @@
         </div>
         <div class="week-stat">
           <dt class="week-stat__label">EMBARQUES</dt>
-          <dd class="week-stat__value">11</dd>
+          <dd class="week-stat__value week-stat__value--alert">11</dd>
         </div>
       </dl>
 
     </section><!-- /.section--next-week -->
-
-    <!-- ────────────────────────────────────────
-         SECCIÓN 3 · ALERTAS SUGERIDAS (AI)
-    ──────────────────────────────────────── -->
-    <section class="section section--alerts"
-             aria-labelledby="alerts-title">
-
-      <div class="section__header">
-        <h2 class="section__title" id="alerts-title">
-          ALERTAS SUGERIDAS
-        </h2>
-
-        <!-- Badge AI — sds-color-special-ai #6680ff -->
-        <span class="ai-badge" role="note" aria-label="Generado por Inditex AI">
-          <img class="ai-badge__icon" src="assets/icon.gif" alt="" aria-hidden="true" />
-          Inditex AI
-        </span>
-      </div>
-
-      <!-- Carrusel de alertas (scroll horizontal snap) — renderizado por JS desde data/alerts.json -->
-      <div class="alerts-scroll"
-           role="list"
-           aria-label="Alertas sugeridas por Inditex AI">
-      </div><!-- /.alerts-scroll -->
-
-      <!-- Indicador de posición (dots) — renderizado por JS -->
-      <div class="carousel-dots" role="tablist" aria-label="Posición en el carrusel de alertas">
-      </div>
-
-    </section><!-- /.section--alerts -->
 
   </main><!-- /.main-content -->
 
@@ -187,8 +205,6 @@
             type="button"
             aria-current="page"
             aria-label="Home">
-      <!-- indicador superior -->
-      <span class="tab-bar__indicator" aria-hidden="true"></span>
       <!-- icon: home-filled (SDS others group) -->
       <svg class="tab-bar__icon" viewBox="0 0 24 24" fill="none"
            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -196,6 +212,8 @@
               fill="currentColor"/>
       </svg>
       <span class="tab-bar__label">Home</span>
+      <!-- indicador inferior -->
+      <span class="tab-bar__indicator" aria-hidden="true"></span>
     </button>
 
     <!-- PEDIDOS -->

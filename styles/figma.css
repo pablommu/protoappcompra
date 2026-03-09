@@ -1,0 +1,1971 @@
+/* Home */
+
+box-sizing: border-box;
+
+position: relative;
+width: 393px;
+height: 852px;
+left: 600px;
+top: 276px;
+
+background: #FFFFFF;
+border-radius: 0px;
+
+
+/* Abstract Blue Motion 2 */
+
+position: absolute;
+width: 833px;
+height: 1105px;
+left: -220px;
+top: 0px;
+
+background: url(invert de image color
+.png);
+
+
+/* SDS Tab Bar */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 393px;
+height: 83px;
+left: calc(50% - 393px/2 + 0.5px);
+bottom: 0px;
+
+
+
+/* Background */
+
+position: absolute;
+left: -0.5px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+
+/* Tabs */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px 42px;
+gap: 27px;
+
+position: absolute;
+height: 49px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* SDS Tab Bar / * Item */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 6px;
+
+margin: 0 auto;
+width: 103px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Line */
+
+width: 64px;
+height: 1px;
+
+background: #000000;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Tab */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 34px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Home
+
+<p>Others, home, filled, start, principal screen</p>
+*/
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Shape */
+
+position: absolute;
+left: 15%;
+right: 10.47%;
+top: 10%;
+bottom: 10%;
+
+background: #000000;
+
+
+/* SDS Tab Bar / * Badge */
+
+position: absolute;
+display: none;
+width: 8px;
+height: 8px;
+left: 12px;
+top: -0.33px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Label */
+
+margin: 0 auto;
+width: 34px;
+height: 18px;
+
+/* sds/typo/detail/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+text-align: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS Tab Bar / * Item */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 6px 11px 0px;
+gap: 8px;
+
+margin: 0 auto;
+width: 103px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+isolation: isolate;
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Shopping cart
+
+<p>Notification off, bell</p>
+*/
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Shape */
+
+position: absolute;
+left: 10%;
+right: 10%;
+top: 15%;
+bottom: 15%;
+
+background: #454545;
+
+
+/* SDS Tab Bar / * Badge */
+
+position: absolute;
+display: none;
+width: 8px;
+height: 8px;
+left: 12px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Label */
+
+margin: 0 auto;
+width: 45px;
+height: 18px;
+
+/* sds/typo/detail/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+text-align: center;
+
+color: #454545;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS Tab Bar / * Item */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 6px 11px 0px;
+gap: 8px;
+
+margin: 0 auto;
+width: 103px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 1;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+isolation: isolate;
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*   Search
+
+<p>Action, magnifying glass, search, look for, detail</p><p><br></p>
+*/
+
+margin: 0 auto;
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Shape */
+
+position: absolute;
+left: 10%;
+right: 10%;
+top: 10%;
+bottom: 10%;
+
+background: #454545;
+
+
+/* SDS Tab Bar / * Badge */
+
+position: absolute;
+display: none;
+width: 8px;
+height: 8px;
+left: 12px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Label */
+
+margin: 0 auto;
+width: 40px;
+height: 18px;
+
+/* sds/typo/detail/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+text-align: center;
+
+color: #454545;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS Home indicator */
+
+position: absolute;
+height: 34px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+
+
+
+/* Home Indicator */
+
+position: absolute;
+width: 134px;
+height: 5px;
+left: calc(50% - 134px/2 + 0.5px);
+bottom: 8px;
+
+background: #000000;
+border-radius: 100px;
+
+
+/* Section Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+padding: 32px 0px 56px;
+gap: 24px;
+
+position: absolute;
+width: 361px;
+height: 671px;
+left: 16px;
+top: 98px;
+
+
+
+/* Frame 1104220538 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+gap: 74px;
+
+margin: 0 auto;
+width: 361px;
+height: 97px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Section Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 255px;
+height: 97px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 1104220540 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+width: 255px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 58px;
+height: 20px;
+
+/* sds/typo/label/l */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* SDS Filter Tag */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 2px;
+
+width: 44px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 22px;
+height: 20px;
+
+/* sds/typo/label/l high */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.4px;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Monocolor / Outlined / Arrows / Chevron Down
+
+<p>arrows, chevron down, deploy</p>
+*/
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* UUID */
+
+position: absolute;
+left: 240%;
+right: -1230%;
+top: 15%;
+bottom: 15%;
+
+/* Detail/S */
+font-family: 'Neue Helvetica for Zara';
+font-style: normal;
+font-weight: 300;
+font-size: 10px;
+line-height: 14px;
+/* identical to box height, or 140% */
+letter-spacing: 0.04em;
+
+color: #000000;
+
+
+
+/* Icon Wrapper */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+
+/* Shape */
+
+position: absolute;
+left: 28.23%;
+right: 28.23%;
+top: 37.35%;
+bottom: 37.35%;
+
+background: #000000;
+
+
+/* Middle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: baseline;
+padding: 0px;
+gap: 4px;
+
+width: 255px;
+height: 57px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Amount */
+
+width: 247px;
+height: 57px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 80px;
+line-height: 118px;
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Units */
+
+width: 40px;
+height: 23px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 32px;
+line-height: 32px;
+/* or 100% */
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS  Page Control */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+padding: 10px 0px 0px;
+
+width: 32px;
+height: 97px;
+
+border-radius: 50px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Wrapper */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 8px 12px 0px;
+gap: 8px;
+
+width: 25px;
+height: 60px;
+
+border-radius: 50px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* SDS Page Control / * Dot  */
+
+width: 12px;
+height: 1px;
+
+background: #000000;
+transform: rotate(90deg);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* SDS Page Control / * Dot  */
+
+width: 12px;
+height: 1px;
+
+background: #000000;
+opacity: 0.2;
+transform: rotate(90deg);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS Page Control / * Dot  */
+
+width: 12px;
+height: 1px;
+
+background: #000000;
+opacity: 0.2;
+transform: rotate(90deg);
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Section Details */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 16px;
+gap: 4px;
+
+margin: 0 auto;
+width: 361px;
+height: 96px;
+
+background: rgba(255, 255, 255, 0.4);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 1104220537 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 4px;
+gap: 8px;
+
+width: 329px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 52px;
+height: 16px;
+
+/* sds/typo/label/m high */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 145% */
+letter-spacing: 0.4px;
+text-transform: uppercase;
+
+color: #E12D3C;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 329px;
+height: 18px;
+
+/* sds/typo/detail/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 329px;
+height: 18px;
+
+/* sds/typo/detail/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 1104220539 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+margin: 0 auto;
+width: 361px;
+height: 256px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Section Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 361px;
+height: 108px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Date Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 8px;
+gap: 8px;
+
+width: 362px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 69px;
+height: 16px;
+
+/* sds/typo/label/m high */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 145% */
+letter-spacing: 0.4px;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 64px;
+height: 16px;
+
+/* sds/typo/label/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 145% */
+text-transform: uppercase;
+
+color: #5C5C5C;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector 30 */
+
+width: 361px;
+height: 0px;
+
+opacity: 0.7;
+border: 0.5px solid rgba(122, 122, 122, 0.8);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Section Details */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 0px 0px;
+gap: 16px;
+
+width: 361px;
+height: 68px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Detail Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+width: 172.5px;
+height: 60px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Label */
+
+width: 172.5px;
+height: 20px;
+
+/* sds/typo/label/l */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Middle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: baseline;
+padding: 0px;
+gap: 4px;
+
+width: 172.5px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Amount */
+
+width: 44px;
+height: 28px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 40px;
+line-height: 48px;
+/* or 120% */
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Detail Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+width: 172.5px;
+height: 60px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Label */
+
+width: 172.5px;
+height: 20px;
+
+/* sds/typo/label/l */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Middle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: baseline;
+padding: 0px;
+gap: 4px;
+
+width: 172.5px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Amount */
+
+width: 44px;
+height: 28px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 40px;
+line-height: 48px;
+/* or 120% */
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Section Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 361px;
+height: 116px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Date Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 0px;
+gap: 8px;
+
+width: 362px;
+height: 32px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 106px;
+height: 16px;
+
+/* sds/typo/label/m high */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 145% */
+letter-spacing: 0.4px;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 62px;
+height: 16px;
+
+/* sds/typo/label/m */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 145% */
+text-transform: uppercase;
+
+color: #5C5C5C;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector 30 */
+
+width: 361px;
+height: 0px;
+
+opacity: 0.7;
+border: 0.5px solid rgba(122, 122, 122, 0.8);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Section Details */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 0px 0px;
+gap: 16px;
+
+width: 361px;
+height: 68px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Detail Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+width: 172.5px;
+height: 60px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Label */
+
+width: 172.5px;
+height: 20px;
+
+/* sds/typo/label/l */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Middle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: baseline;
+padding: 0px;
+gap: 4px;
+
+width: 172.5px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Amount */
+
+width: 26px;
+height: 28px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 40px;
+line-height: 48px;
+/* or 120% */
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Detail Info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+width: 172.5px;
+height: 60px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Frame 1104220541 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 172.5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 86px;
+height: 20px;
+
+/* sds/typo/label/l */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 13px;
+line-height: 20px;
+/* identical to box height, or 154% */
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Middle */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+width: 172.5px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Amount */
+
+width: 36px;
+height: 28px;
+
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 325;
+font-size: 40px;
+line-height: 48px;
+/* or 120% */
+/* leading-trim and text-edge are draft CSS properties.
+
+Read more: https://drafts.csswg.org/css-inline-3/#leading-trim
+*/
+leading-trim: both;
+text-edge: cap;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #E12D3C;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* SDS Navigation bar */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 393px;
+height: 98px;
+left: 0px;
+top: 0px;
+
+
+
+/* SDS Status Bar */
+
+width: 393px;
+height: 54px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Time */
+
+position: absolute;
+width: 140.5px;
+height: 54px;
+left: -0.5px;
+top: calc(50% - 54px/2);
+
+
+
+/* Time */
+
+position: absolute;
+left: 36.96%;
+right: 36.71%;
+top: 33.96%;
+bottom: 25.3%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 17px;
+line-height: 22px;
+/* identical to box height, or 129% */
+text-align: center;
+
+color: #000000;
+
+
+
+/* Levels */
+
+position: absolute;
+width: 140.5px;
+height: 54px;
+right: 0.5px;
+top: calc(50% - 54px/2);
+
+
+
+/* Battery */
+
+position: absolute;
+left: 57.65%;
+right: 22.9%;
+top: 42.59%;
+bottom: 33.33%;
+
+
+
+/* Border */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 25px;
+left: calc(50% - 25px/2 + 23.25px);
+top: 42.59%;
+bottom: 33.33%;
+
+mix-blend-mode: normal;
+opacity: 0.35;
+border: 1px solid #000000;
+border-radius: 4.3px;
+
+
+/* Cap */
+
+position: absolute;
+width: 1.33px;
+left: calc(50% - 1.33px/2 + 37.41px);
+top: 51.45%;
+bottom: 41.01%;
+
+background: #000000;
+mix-blend-mode: normal;
+opacity: 0.4;
+
+
+/* Capacity */
+
+position: absolute;
+width: 21px;
+left: calc(50% - 21px/2 + 23.25px);
+top: 46.3%;
+bottom: 37.04%;
+
+background: #000000;
+border-radius: 2.5px;
+
+
+/* Wifi */
+
+position: absolute;
+width: 17.14px;
+left: calc(50% - 17.14px/2 - 4.98px);
+top: 43.77%;
+bottom: 33.4%;
+
+background: #000000;
+
+
+/* Cellular Connection */
+
+position: absolute;
+width: 19.2px;
+left: calc(50% - 19.2px/2 - 30.65px);
+top: 43.59%;
+bottom: 33.77%;
+
+background: #000000;
+
+
+/* Notch */
+
+position: absolute;
+width: 125px;
+height: 37px;
+left: calc(50% - 125px/2 + 0.5px);
+top: calc(50% - 37px/2 + 2.5px);
+
+background: #000000;
+border-radius: 20px;
+
+
+/* Contents */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 393px;
+height: 44px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Title and controls */
+
+width: 393px;
+height: 44px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Title */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 2px;
+
+position: absolute;
+width: 207px;
+height: 40px;
+left: calc(50% - 207px/2 + 0.5px);
+top: calc(50% - 40px/2);
+
+
+
+/* Header */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 141px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* SDS Avatar */
+
+display: none;
+width: 32px;
+height: 32px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Title */
+
+width: 104px;
+height: 24px;
+
+/* sds/typo/title/xs */
+font-family: 'Helvetica Now Text';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: center;
+text-transform: uppercase;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* SDS Navigation Bar / * Subtitle  */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+display: none;
+width: 207px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Leading */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 4px;
+
+position: absolute;
+width: 24px;
+height: 44px;
+left: 8px;
+top: calc(50% - 44px/2);
+
+
+
+/* Sidebar */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 20px 0px 4px;
+
+display: none;
+width: 44px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  User
+
+<p>business, user, outlined, profile, client, consumer, person</p>
+*/
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Shape */
+
+position: absolute;
+left: 15.72%;
+right: 15.71%;
+top: 10%;
+bottom: 10%;
+
+background: #000000;
+
+
+/* Trailing */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+position: absolute;
+visibility: hidden;
+width: 51px;
+height: 44px;
+right: 16px;
+top: 0px;
+
+
+
+/* Search Field */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 16px 15px;
+
+display: none;
+width: 393px;
+height: 52px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
